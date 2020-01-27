@@ -4,7 +4,7 @@
       <Header @buscarFilme = "filmeBusca = $event"/>
       <div class="container">
         <ListaGeneros />
-        <ListaFilmes :filmeBusca = "filmeBusca"/>
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -13,7 +13,6 @@
 <script>
 import Header from './components/Header';
 import ListaGeneros from './components/ListaGeneros';
-import ListaFilmes from './components/ListaFilmes';
 
 export default {
   name: 'app',
@@ -24,8 +23,12 @@ export default {
   },
   components: {
     Header,
-    ListaGeneros,
-    ListaFilmes
+    ListaGeneros
+  },
+  watch: {
+    filmeBusca () {
+      this.$router.push({ path: '/lista-filmes', query: { busca: this.filmeBusca } })
+    }
   }
 }
 </script>

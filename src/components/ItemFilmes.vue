@@ -1,5 +1,5 @@
 <template>
-  <div class="container-item">
+  <div class="container-item" @click="fetchDadosFilme">
     <div class="capa-filme">
       <img :src="filme.Poster" alt="">
     </div>
@@ -10,7 +10,12 @@
 
 <script>
   export default {
-    props: ['filme']
+    props: ['filme'],
+    methods: {
+      fetchDadosFilme () {
+        this.$router.push({ path: '/movie', query: { id: this.filme.imdbID } })
+      }
+    }
   }
 </script>
 
