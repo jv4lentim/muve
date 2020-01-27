@@ -3,7 +3,6 @@
     <div id="app">
       <Header @buscarFilme = "filmeBusca = $event"/>
       <div class="container">
-        <ListaGeneros />
         <router-view></router-view>
       </div>
     </div>
@@ -12,7 +11,6 @@
 
 <script>
 import Header from './components/Header';
-import ListaGeneros from './components/ListaGeneros';
 
 export default {
   name: 'app',
@@ -23,7 +21,6 @@ export default {
   },
   components: {
     Header,
-    ListaGeneros
   },
   watch: {
     filmeBusca () {

@@ -79,7 +79,6 @@
     border-radius: 15px;
     margin-top: 30px;
     margin-bottom: 30px;
-    max-width: 880px;
     
     .titulo {
       color: #ffffff;
