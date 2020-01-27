@@ -17,9 +17,9 @@
     },
     methods: {
       fetchFilmeBusca () {
-        axios.get("http://www.omdbapi.com/", { s: this.filmeBusca, apikey: '8a73c412' })
+        axios.get("http://www.omdbapi.com/", { params: { s: this.filmeBusca, apikey: '8a73c412' }})
         .then((response) => {
-          this.$emit('buscarFilme', response.data);
+          this.$emit('buscarFilme', response.data.Search);
         })
       }
     }
