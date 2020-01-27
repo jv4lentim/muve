@@ -76,6 +76,7 @@
     .container-lista {
       display: flex;
       flex-wrap: wrap;
+      max-width: 880px;
     }
 
     .lista-filmes {
