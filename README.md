@@ -1,4 +1,6 @@
-# muve
+# Muve
+
+Muve is a place where you can find informations about any movie you want.
 
 ## Project setup
 ```
