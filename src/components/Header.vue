@@ -2,14 +2,31 @@
   <div class="header-container">
     <h2 class="logo">Muve</h2>
     <div class="search-bar">
-      <input type="text" placeholder="Pesquise por um filme" >
+      <input v-model="filmeBusca" @keyup.enter="fetchFilmeBusca" type="text" placeholder="Pesquise por um filme">
     </div>
   </div>
 </template>
 
-<script></script>
+<script>
+  import axios from 'axios';
+  export default {
+    data() {
+      return {
+        filmeBusca: ''
+      }
+    },
+    methods: {
+      fetchFilmeBusca () {
+        axios.get("http://www.omdbapi.com/", { s: this.filmeBusca, apikey: '8a73c412' })
+        .then((response) => {
+          this.$emit('buscarFilme', response.data);
+        })
+      }
+    }
+  }
+</script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .header-container {
     display: flex;
     justify-content: space-between;
