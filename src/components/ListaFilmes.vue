@@ -65,6 +65,8 @@
     text-align: left;
     border-radius: 15px;
     margin-top: 30px;
+    margin-bottom: 30px;
+    max-width: 880px;
     
     .titulo {
       color: #ffffff;
@@ -76,7 +78,6 @@
     .container-lista {
       display: flex;
       flex-wrap: wrap;
-      max-width: 880px;
     }
 
     .lista-filmes {
