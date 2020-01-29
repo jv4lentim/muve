@@ -56,7 +56,5 @@ html, body {
 
 .container-app {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 </style>

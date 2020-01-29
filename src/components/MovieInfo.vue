@@ -116,6 +116,10 @@
       margin-right: 20px;
       img {
         border-radius: 10px;
+        transition: transform .2s;
+      }
+      img:hover {
+        transform: scale(0.9);
       }
     }
     .rating {

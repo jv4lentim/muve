@@ -1,6 +1,6 @@
 <template>
   <div class="filmes-container">
-    <h4 class="titulo">Filmes que você talvez goste</h4>
+    <h4 class="titulo">Movies you got to watch</h4>
     <div class="container-lista">
       <ul class="lista-filmes">
         <MovieItem 
@@ -45,6 +45,13 @@
             "imdbID": "tt0338526",
             "Type": "movie",
             "Poster": "https://m.media-amazon.com/images/M/MV5BODRmY2NhNDItOWViNi00OTIyLTk3YjYtYzY0YTFlMDg1YzQ0L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
+          },
+           {
+            "Title": "Guardians of the Galaxy",
+            "Year": "2014",
+            "imdbID": "tt2015381",
+            "Type": "movie",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMTAwMjU5OTgxNjZeQTJeQWpwZ15BbWU4MDUxNDYxODEx._V1_SX300.jpg"
           }
         ],
       }
@@ -78,6 +85,7 @@
     .lista-filmes {
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       margin: 0;
       padding: 0;
     }

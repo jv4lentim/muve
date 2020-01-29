@@ -2,7 +2,7 @@
   <div class="header-container">
     <router-link to="/" class="logo">Muvie</router-link>
     <div class="search-bar">
-      <input v-model="searchTitle" @keyup.enter="searchMovie" type="text" placeholder="Pesquise por um filme">
+      <input v-model="searchTitle" @keyup.enter="searchMovie" type="text" placeholder="Search...">
     </div>
   </div>
 </template>
@@ -34,11 +34,12 @@
     margin-top: 20px;
 
     .logo {
-      color: #ffffff;
+      color: #FFEE00;
       font-size: 31px;
       font-weight: bold;
       text-decoration: none;
       margin-left: 20px;
+      margin-right: 30px;
     }
 
     .search-bar {
@@ -47,6 +48,7 @@
         border-radius: 15px;
         border: none;
         margin-right: 30px;
+        min-width: 450px;
       }
     }
   }

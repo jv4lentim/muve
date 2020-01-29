@@ -23,6 +23,7 @@
   .container-item {
     margin: 10px;
     width: 200px;
+    transition: transform .2s;
     .capa-filme {
       img {
         width: 100%;
@@ -32,11 +33,15 @@
     h3 {
       color: #ffffff;
       width: 200px;
-      font-size: 18px;
+      font-size: 15px;
     }
     p {
       font-size: 15px;
       color: #FFEE00;
     }
+  }
+
+  .container-item:hover {
+    transform: scale(1.1);
   }
 </style>
