@@ -3,8 +3,8 @@
     <h4 class="titulo">Filmes que você talvez goste</h4>
     <div class="container-lista">
       <ul class="lista-filmes">
-        <ItemFilmes 
-          :filme = "movie"
+        <MovieItem 
+          :movie = "movie"
           v-for="(movie, index) in movies"
           :key="index"/>
       </ul>
@@ -13,10 +13,8 @@
 </template>
 
 <script>
-  import axios from 'axios';
-  import ItemFilmes from './ItemFilmes.vue';
+  import MovieItem from './MovieItem.vue';
   export default {
-    props: ['filmeBusca'],
     data() {
       return {
         movies: [
@@ -49,31 +47,16 @@
             "Poster": "https://m.media-amazon.com/images/M/MV5BODRmY2NhNDItOWViNi00OTIyLTk3YjYtYzY0YTFlMDg1YzQ0L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
           }
         ],
-        movieDetail: ''
       }
     },
     components: {
-      ItemFilmes
+      MovieItem
     },
-    methods: {
-      fetchMoviesSearch (search) {
-        axios.get("http://www.omdbapi.com/", { params: { s: search, apikey: '8a73c412' }})
-        .then((response) => {
-          return this.movies = response.data.Search;
-        })
-      }
-    },
-    watch: {
-      $route () {
-        this.fetchMoviesSearch(this.$route.query.busca);
-      },
-    }
   }
 </script>
 
 <style lang="scss" scoped>
   .filmes-container {
-    background-color: #1A1820;
     padding: 20px;
     text-align: left;
     border-radius: 15px;

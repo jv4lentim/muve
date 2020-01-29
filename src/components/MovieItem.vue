@@ -1,19 +1,19 @@
 <template>
-  <div class="container-item" @click="fetchDadosFilme">
+  <div class="container-item" @click="fetchMovie">
     <div class="capa-filme">
-      <img :src="filme.Poster" alt="">
+      <img :src="movie.Poster" alt="">
     </div>
-    <h3>{{ filme.Title }}</h3>
-    <p>{{ filme.imdbRating }}</p>
+    <h3>{{ movie.Title }}</h3>
+    <p>{{ movie.imdbRating }}</p>
   </div>
 </template>
 
 <script>
   export default {
-    props: ['filme'],
+    props: ['movie'],
     methods: {
-      fetchDadosFilme () {
-        this.$router.push({ path: '/movie', query: { id: this.filme.imdbID } })
+      fetchMovie () {
+        this.$router.push({ path: `/movie/${this.movie.imdbID}`});
       }
     }
   }

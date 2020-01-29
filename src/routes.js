@@ -1,7 +1,8 @@
-import ListaFilmes from './components/ListaFilmes';
-import FilmeDetalhes from './components/FilmeDetalhes';
+import MoviesList from './components/MoviesList';
+import MovieInfo from './components/MovieInfo';
+import Home from './components/Home';
 export const routes = [
-    { path: '/', component: ListaFilmes,},
-    { path: '/lista-filmes', component: ListaFilmes },
-    { path: '/movie', component: FilmeDetalhes }
+    { path: '/', component: Home,},
+    { path: '/movies/:search', component: MoviesList },
+    { path: '/movie/:id', component: MovieInfo }
 ];

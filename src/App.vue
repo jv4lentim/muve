@@ -1,7 +1,7 @@
 <template>
   <div class="container-app">
     <div id="app">
-      <Header @buscarFilme = "filmeBusca = $event"/>
+      <Header/>
       <div class="container">
         <router-view></router-view>
       </div>
@@ -32,7 +32,7 @@ export default {
 
 <style>
 
-body {
+html, body {
   background-color: #0F1014;
   margin: 0;
   padding: 0;
@@ -56,5 +56,7 @@ body {
 
 .container-app {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>

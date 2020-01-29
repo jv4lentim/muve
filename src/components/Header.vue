@@ -1,8 +1,8 @@
 <template>
   <div class="header-container">
-    <router-link to="/" class="logo">Muve</router-link>
+    <router-link to="/" class="logo">Muvie</router-link>
     <div class="search-bar">
-      <input v-model="filmeBusca" @keyup.enter="fetchFilmeBusca" type="text" placeholder="Pesquise por um filme">
+      <input v-model="searchTitle" @keyup.enter="searchMovie" type="text" placeholder="Pesquise por um filme">
     </div>
   </div>
 </template>
@@ -11,13 +11,15 @@
   export default {
     data() {
       return {
-        filmeBusca: ''
+        searchTitle: ''
       }
     },
     methods: {
-      fetchFilmeBusca () {
-        this.$emit('buscarFilme', this.filmeBusca);
-        this.filmeBusca = '';
+      searchMovie () {
+        if (this.searchTitle != '') {
+          this.$router.push({ path: `/movies/${this.searchTitle}`});
+          this.searchTitle = '';
+        }
       }
     }
   }
@@ -36,6 +38,7 @@
       font-size: 31px;
       font-weight: bold;
       text-decoration: none;
+      margin-left: 20px;
     }
 
     .search-bar {
@@ -43,6 +46,7 @@
         padding: 10px;
         border-radius: 15px;
         border: none;
+        margin-right: 30px;
       }
     }
   }
