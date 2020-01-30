@@ -1,7 +1,7 @@
 <template>
   <div class="message-container">
     <h4>Discover more about stories you love</h4>
-    <p>Try to start searching for the last movie you watched</p>
+    <p>Try starting to search for the first movie that comes to your mind</p>
   </div>
 </template>
 
