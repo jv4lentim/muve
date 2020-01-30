@@ -1,5 +1,6 @@
 <template>
   <div class="filmes-container">
+    <Message />
     <h4 class="titulo">Movies you got to watch</h4>
     <div class="container-lista">
       <ul class="lista-filmes">
@@ -14,6 +15,7 @@
 
 <script>
   import MovieItem from './MovieItem.vue';
+  import Message from './Message.vue';
   export default {
     data() {
       return {
@@ -45,24 +47,19 @@
             "imdbID": "tt0338526",
             "Type": "movie",
             "Poster": "https://m.media-amazon.com/images/M/MV5BODRmY2NhNDItOWViNi00OTIyLTk3YjYtYzY0YTFlMDg1YzQ0L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_SX300.jpg"
-          },
-           {
-            "Title": "Guardians of the Galaxy",
-            "Year": "2014",
-            "imdbID": "tt2015381",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BMTAwMjU5OTgxNjZeQTJeQWpwZ15BbWU4MDUxNDYxODEx._V1_SX300.jpg"
           }
         ],
       }
     },
     components: {
-      MovieItem
+      MovieItem,
+      Message
     },
   }
 </script>
 
 <style lang="scss" scoped>
+
   .filmes-container {
     padding: 20px;
     text-align: left;
