@@ -1,6 +1,6 @@
 <template>
-  <div class="filme-container">
-    <div class="loading" v-if="isLoading">
+  <div class="loading-container" v-if="isLoading">
+    <div class="loading">
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto;" width="100px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
         <g transform="rotate(0 50 50)">
           <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
@@ -53,7 +53,9 @@
         </g>
       </svg>
     </div>
-    <div class="movie-info" v-else>
+  </div>
+  <div class="filme-container" v-else>
+    <div class="movie-info">
       <div class="capa-filme-detalhes">
         <img :src="movie.Poster" alt="" />
       </div>
@@ -96,7 +98,7 @@
 </script>
 
 <style lang="scss" scoped>
-.movie-info {
+  .movie-info {
     padding: 20px;
     text-align: left;
     border-radius: 15px;
@@ -139,5 +141,9 @@
       flex-direction: column;
       display: flex;
     }
-}
+  }
+
+  .loading-container {
+    margin: 0 auto;
+  }
 </style>

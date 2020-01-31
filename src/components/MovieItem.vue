@@ -24,6 +24,8 @@
     margin: 10px;
     width: 200px;
     transition: transform .2s;
+    text-align: center;
+
     .capa-filme {
       img {
         width: 100%;
