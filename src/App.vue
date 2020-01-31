@@ -1,11 +1,9 @@
 <template>
-  <div class="bg-black">
-    <div class="container-app">
-      <div id="app">
-        <Header/>
-        <div class="container">
-          <router-view></router-view>
-        </div>
+  <div class="container-app">
+    <div id="app">
+      <Header/>
+      <div class="container">
+        <router-view></router-view>
       </div>
     </div>
   </div>
@@ -36,18 +34,13 @@ export default {
 
 html, body {
   background: url('./assets/images/avengers.png') no-repeat center center fixed; 
+  background-color:rgba(15, 16, 20, 1);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   margin: 0;
   padding: 0;
-}
-
-.bg-black {
-  width: 100%;
-  height: 100%;
-  background-color: rgba(15, 16, 20, 0.9);
 }
 
 .container {
