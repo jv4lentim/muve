@@ -1,6 +1,6 @@
 <template>
   <div class="header-container">
-    <router-link to="/" class="logo">Muvie</router-link>
+    <router-link to="/" class="logo">Muve</router-link>
     <div class="search-bar">
       <input v-model="searchTitle" @keyup.enter="searchMovie" type="text" placeholder="Search...">
     </div>
