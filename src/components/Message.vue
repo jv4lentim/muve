@@ -22,6 +22,7 @@
     h4 {
       color: #ffffff;
       font-size: 20pt;
+      font-weight: bold;
     }
 
     p {

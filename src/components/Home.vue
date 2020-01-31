@@ -69,8 +69,9 @@
     
     .titulo {
       color: #ffffff;
-      font-size: 25px;
-      margin: 0;
+      font-size: 16pt;
+      text-align: center;
+      margin-top: 35px;
       padding: 0;
     }
 
