@@ -1,61 +1,21 @@
 <template>
   <div class="loading-container" v-if="isLoading">
-    <div class="loading">
-      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto;" width="100px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
-        <g transform="rotate(0 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.5623721881390592s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(30 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.5112474437627811s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(60 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.460122699386503s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(90 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.4089979550102249s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(120 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.3578732106339468s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(150 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.30674846625766866s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(180 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.25562372188139054s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(210 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.20449897750511245s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(240 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.15337423312883433s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(270 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.10224948875255623s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(300 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="-0.05112474437627811s" repeatCount="indefinite"></animate>
-          </rect>
-        </g><g transform="rotate(330 50 50)">
-          <rect x="48" y="24" rx="2" ry="2.64" width="4" height="12" fill="#ffffff">
-            <animate attributeName="opacity" values="1;0" keyTimes="0;1" dur="0.6134969325153374s" begin="0s" repeatCount="indefinite"></animate>
-          </rect>
-        </g>
-      </svg>
-    </div>
+    <loading-svg></loading-svg>
   </div>
   <div class="filmes-container" v-else>
-    <div class="container-lista">
+    <div v-if="noResult">
+      <Message :mainMessage="'Ooops! We could not find that movie :('" :subMessage="'What about these here?'" :image="''" />
+      <div class="loading-container" v-if="noResultLoading">
+        <loading-svg></loading-svg>
+      </div>
+      <ul class="lista-filmes" v-else>
+        <MovieItem 
+          :movie = "movie"
+          v-for="(movie, index) in movies"
+          :key="index"/>
+      </ul>
+    </div>
+    <div class="container-lista" v-else>
       <ul class="lista-filmes">
         <MovieItem 
           :movie = "movie"
@@ -67,36 +27,49 @@
 </template>
 
 <script>
-  import axios from 'axios';
-  import MovieItem from './MovieItem.vue';
+  import MovieItem from './MovieItem';
+  import Message from './common/Message';
+  import Loading from './common/Loading';
+  import { fetchMovies }from '../repository/api';
+
   export default {
     data() {
       return {
         movies: [],
         searchTerm: this.$route.params.search,
-        isLoading: true
+        isLoading: true,
+        noResult: false,
+        noResultLoading: true,
+        moviesListNoResult: ['spider', 'lord of the rings', 'harry potter', 'the hobbit', 'avengers', 'star wars']
       }
     },
     components: {
-      MovieItem
+      MovieItem,
+      Message,
+      'loading-svg': Loading
     },
     beforeMount () {
-      this.fetchMovies(this.searchTerm);
+      this.fetchMoviesList();
     },
     watch: {
       $route (to) {
         this.isLoading = true;
         this.searchTerm = to.params.search;
-        this.fetchMovies(this.searchTerm);
+        this.fetchMoviesList();
       }
     },
     methods: {
-      fetchMovies (search) {
-        axios.get("http://www.omdbapi.com/", { params: { s: search, apikey: '8a73c412' }})
-        .then((response) => {
-          this.isLoading = false;
-          return this.movies = response.data.Search;
-        })
+      async fetchMoviesNoResult() {
+        this.movies = await fetchMovies(this.moviesListNoResult[Math.floor(Math.random() * this.moviesListNoResult.length)]);
+        this.noResultLoading = false;
+      },
+      async fetchMoviesList() {
+        this.movies = await fetchMovies(this.searchTerm);
+        this.isLoading = false;
+        if (this.movies == null) {
+          this.noResult = true;
+          this.fetchMoviesNoResult();
+        }
       }
     }
   }
@@ -137,4 +110,6 @@
   .loading-container {
     margin: 0 auto;
   }
+
+
 </style>

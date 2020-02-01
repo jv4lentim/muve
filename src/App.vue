@@ -1,7 +1,7 @@
 <template>
   <div class="container-app">
     <div id="app">
-      <Header/>
+      <Header :title="'Muve'" />
       <div class="container">
         <router-view></router-view>
       </div>

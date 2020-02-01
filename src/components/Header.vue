@@ -1,26 +1,21 @@
 <template>
   <div class="header-container">
-    <router-link to="/" class="logo">Muve</router-link>
-    <div class="search-bar">
-      <input v-model="searchTitle" @keyup.enter="searchMovie" type="text" placeholder="Search...">
-    </div>
+    <router-link to="/" class="logo hvr-pulse-grow">{{ title }}</router-link>
+    <search-input></search-input>
   </div>
 </template>
 
 <script>
+  import Search from './common/Search';
   export default {
-    data() {
-      return {
-        searchTitle: ''
+    props: {
+      title: {
+        type: String,
+        default: 'Muve'
       }
     },
-    methods: {
-      searchMovie () {
-        if (this.searchTitle != '') {
-          this.$router.push({ path: `/movies/${this.searchTitle}`});
-          this.searchTitle = '';
-        }
-      }
+    components: {
+      'search-input': Search
     }
   }
 </script>
@@ -42,14 +37,36 @@
       margin-right: 30px;
     }
 
-    .search-bar {
-      input {
-        padding: 10px;
-        border-radius: 15px;
-        border: none;
-        margin-right: 30px;
-        min-width: 450px;
+    @-webkit-keyframes hvr-pulse-grow {
+      to {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
       }
+    }
+    @keyframes hvr-pulse-grow {
+      to {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+      }
+    }
+    .hvr-pulse-grow {
+      display: inline-block;
+      vertical-align: middle;
+      -webkit-transform: perspective(1px) translateZ(0);
+      transform: perspective(1px) translateZ(0);
+      box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    }
+    .hvr-pulse-grow:hover {
+      -webkit-animation-name: hvr-pulse-grow;
+      animation-name: hvr-pulse-grow;
+      -webkit-animation-duration: 0.3s;
+      animation-duration: 0.3s;
+      -webkit-animation-timing-function: linear;
+      animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-direction: alternate;
+      animation-direction: alternate;
     }
   }
 </style>
