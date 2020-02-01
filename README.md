@@ -5,11 +5,11 @@ Muve is a place where you know more about that movie you love :heart:
 
 ![Imgur](https://i.imgur.com/vfSUPKg.jpg)
 
-![Imgur](https://i.imgur.com/Ct3AlVP.png)
-
 ![Imgur](https://i.imgur.com/OrJe7Hq.jpg)
 
 ![Imgur](https://i.imgur.com/WJt9tze.jpg)
+
+![Imgur](https://i.imgur.com/Ct3AlVP.png)
 
 ## Project setup
 ```
