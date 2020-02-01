@@ -5,7 +5,7 @@
   <div class="filmes-container" v-else>
     <div class="container-noresult" v-if="noResult">
       <Message 
-        :mainMessage="'Ooops! We could not find that movie :('"
+        :mainMessage="'Ooops! We could not find this movie :('"
         :subMessage="'What about these here?'"
         :image="'claquete'"
         class="message" />
