@@ -1,12 +1,16 @@
 <template>
   <div class="loading-container" v-if="isLoading">
-    <loading-svg></loading-svg>
+    <Loading />
   </div>
   <div class="filmes-container" v-else>
-    <div v-if="noResult">
-      <Message :mainMessage="'Ooops! We could not find that movie :('" :subMessage="'What about these here?'" :image="''" />
+    <div class="container-noresult" v-if="noResult">
+      <Message 
+        :mainMessage="'Ooops! We could not find that movie :('"
+        :subMessage="'What about these here?'"
+        :image="'claquete'"
+        class="message" />
       <div class="loading-container" v-if="noResultLoading">
-        <loading-svg></loading-svg>
+        <Loading />
       </div>
       <ul class="lista-filmes" v-else>
         <MovieItem 
@@ -30,6 +34,7 @@
   import MovieItem from './MovieItem';
   import Message from './common/Message';
   import Loading from './common/Loading';
+  import { RANDOM_MOVIES } from '../data/movie';
   import { fetchMovies }from '../repository/api';
 
   export default {
@@ -40,13 +45,13 @@
         isLoading: true,
         noResult: false,
         noResultLoading: true,
-        moviesListNoResult: ['spider', 'lord of the rings', 'harry potter', 'the hobbit', 'avengers', 'star wars']
+        moviesListNoResult: RANDOM_MOVIES
       }
     },
     components: {
       MovieItem,
       Message,
-      'loading-svg': Loading
+      Loading
     },
     beforeMount () {
       this.fetchMoviesList();
@@ -109,6 +114,12 @@
 
   .loading-container {
     margin: 0 auto;
+  }
+
+  .container-noresult {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
 

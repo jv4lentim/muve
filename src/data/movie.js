@@ -29,4 +29,17 @@ const MOVIES = [
     }
 ];
 
-export { MOVIES };
+const RANDOM_MOVIES = [
+  'Spider Man',
+  'Guardians of the Galaxy',
+  'Star Trek',
+  'Star Wars',
+  'Harry Potter',
+  'The Lord of the Rings',
+  'Percy Jackson',
+  'Fast and Furious',
+  'Transformers',
+  'Pirates of the Caribbean'
+]
+
+export { MOVIES, RANDOM_MOVIES };

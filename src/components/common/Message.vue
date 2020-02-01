@@ -47,6 +47,8 @@
     background-color: rgba(155, 155, 155, 0.1);
     border-radius: 5px;
     box-shadow: 1px 1px 1px black;
+    max-width: 1112px;
+    width: 100%;
     
     h4 {
       color: #ffffff;

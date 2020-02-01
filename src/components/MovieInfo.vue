@@ -1,6 +1,6 @@
 <template>
   <div class="loading-container" v-if="isLoading">
-    <loading-svg></loading-svg>
+    <Loading />
   </div>
   <div class="filme-container" v-else>
     <div class="movie-info">
@@ -19,8 +19,11 @@
         <p>{{ movie.Plot }}</p>
       </div>
     </div>
-    <Message :mainMessage="'This movie is pretty awesome!'" :subMessage="'What about trying to know more about another one?'" />
-    <search-input :widthInput="'100%'" :searchPlaceholder="'Search for an amazing movie'"></search-input>
+    <Message
+      :mainMessage="'This movie is pretty awesome!'"
+      :subMessage="'What about trying to know more about another one?'"
+      :image="'pipoca'" />
+    <Search :widthInput="'100%'" :searchPlaceholder="'Search for an amazing movie'" />
   </div>
 </template>
 
@@ -37,8 +40,8 @@
       }
     },
     components: {
-      'loading-svg': Loading,
-      'search-input': Search,
+      Loading,
+      Search,
       Message
     },
     beforeMount () {
