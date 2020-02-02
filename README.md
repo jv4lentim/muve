@@ -1,6 +1,17 @@
-# Muve
+# Muve  :movie_camera:
 
-Muve is a place where you can find informations about any movie you want.
+Muve is a place where you know more about that movie you love :heart:
+
+Everything works upon [OMDb API](http://www.omdbapi.com/), which is a RESTful web service to obtain movie information.
+
+
+![Imgur](https://i.imgur.com/vfSUPKg.jpg)
+
+![Imgur](https://i.imgur.com/OrJe7Hq.jpg)
+
+![Imgur](https://i.imgur.com/WJt9tze.jpg)
+
+![Imgur](https://i.imgur.com/Ct3AlVP.png)
 
 ## Project setup
 ```
