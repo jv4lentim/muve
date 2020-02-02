@@ -2,7 +2,7 @@
   <div class="loading-container" v-if="isLoading">
     <Loading />
   </div>
-  <div class="filme-container" v-else>
+  <div v-else>
     <div class="movie-info">
       <div class="capa-filme-detalhes">
         <img :src="movie.Poster" :alt="movie.Title" />
@@ -58,14 +58,11 @@
 
 <style lang="scss" scoped>
   .movie-info {
-    padding: 20px;
     text-align: left;
     border-radius: 15px;
     margin-top: 30px;
     margin-bottom: 30px;
-    max-width: 880px;
     display: flex;
-    align-items: center;
         
     .titulo {
       color: #ffffff;
@@ -79,6 +76,7 @@
       img {
         border-radius: 10px;
         transition: transform .2s;
+        width: 500px;
       }
       img:hover {
         transform: scale(0.9);
@@ -93,11 +91,10 @@
       margin-bottom: 5px;
     }
     span {
-      color: #828282;
+      color: #bcbcbc;
     }
 
     .detalhes-filme {
-      width: 400px;
       flex-direction: column;
       display: flex;
     }

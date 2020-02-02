@@ -2,13 +2,12 @@
   <div class="loading-container" v-if="isLoading">
     <Loading />
   </div>
-  <div class="filmes-container" v-else>
-    <div class="container-noresult" v-if="noResult">
+  <div class="list-container" v-else>
+    <div name="container-noresult" v-if="noResult">
       <Message 
         :mainMessage="'Ooops! We could not find this movie :('"
         :subMessage="'What about these here?'"
-        :image="'claquete'"
-        class="message" />
+        :image="'claquete'" />
       <div class="loading-container" v-if="noResultLoading">
         <Loading />
       </div>
@@ -19,7 +18,7 @@
           :key="index"/>
       </ul>
     </div>
-    <div class="container-lista" v-else>
+    <div name="container-lista" v-else>
       <ul class="lista-filmes">
         <MovieItem 
           :movie = "movie"
@@ -70,6 +69,7 @@
       },
       async fetchMoviesList() {
         this.movies = await fetchMovies(this.searchTerm);
+        this.noResult = false;
         this.isLoading = false;
         if (this.movies == null) {
           this.noResult = true;
@@ -81,18 +81,16 @@
 </script>
 
 <style lang="scss" scoped>
-  .filmes-container {
+  .list-container {
     text-align: left;
     border-radius: 15px;
     margin-top: 30px;
     margin-bottom: 30px;
-    
     .titulo {
       color: white;
       font-size: 25px;
       padding: 0;
     }
-
     .lista-filmes {
       display: flex;
       flex-wrap: wrap;
@@ -100,26 +98,11 @@
       margin: 0;
       padding: 0;
     }
-
-    .searchTerm {
-      font-weight: bold;
-      color: grey;
-    }
-
     .loading {
       width: 100px;
     }
   }
-
   .loading-container {
     margin: 0 auto;
   }
-
-  .container-noresult {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-
 </style>

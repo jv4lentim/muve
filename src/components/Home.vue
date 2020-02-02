@@ -2,10 +2,10 @@
   <div class="filmes-container">
     <Message />
     <h4 class="titulo">Movies you got to watch</h4>
-    <div class="loading-container" v-if="isLoading">
+    <div name="loading-container" v-if="isLoading">
       <Loading />
     </div>
-    <div class="container-lista" v-else>
+    <div name="container-list" v-else>
       <ul class="lista-filmes">
         <MovieItem 
           :movie = "movie"
@@ -48,7 +48,6 @@
 </script>
 
 <style lang="scss" scoped>
-
   .filmes-container {
     text-align: left;
     border-radius: 15px;
@@ -57,7 +56,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    
     .titulo {
       color: #ffffff;
       font-size: 16pt;
@@ -65,18 +63,10 @@
       margin-top: 35px;
       padding: 0;
     }
-
-    .container-lista {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
     .lista-filmes {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin: 0;
-      padding: 0;
     }
   }
 </style>
