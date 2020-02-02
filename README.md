@@ -4,6 +4,8 @@ Muve is a place where you know more about that movie you love :heart:
 
 Everything works upon [OMDb API](http://www.omdbapi.com/), which is a RESTful web service to obtain movie information.
 
+![Imgur](https://i.imgur.com/BnWk1rf.png)
+
 ## Project setup
 ```
 yarn install
