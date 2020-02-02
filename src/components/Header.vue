@@ -23,18 +23,16 @@
 <style lang="scss" scoped>
   .header-container {
     display: flex;
-    justify-content: space-around;
     align-items: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    margin-top: 20px;
+    margin-top: 40px;
 
     .logo {
       color: #FFEE00;
       font-size: 31px;
       font-weight: bold;
       text-decoration: none;
-      margin-left: 20px;
-      margin-right: 30px;
     }
 
     @-webkit-keyframes hvr-pulse-grow {

@@ -86,7 +86,6 @@
     border-radius: 15px;
     margin-top: 30px;
     margin-bottom: 30px;
-    padding: 20px;
     
     .titulo {
       color: white;

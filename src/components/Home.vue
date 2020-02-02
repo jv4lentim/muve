@@ -50,7 +50,6 @@
 <style lang="scss" scoped>
 
   .filmes-container {
-    padding: 20px;
     text-align: left;
     border-radius: 15px;
     margin-top: 30px;

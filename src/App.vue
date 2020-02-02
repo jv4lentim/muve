@@ -1,7 +1,7 @@
 <template>
   <div class="container-app">
+    <Header :title="'Muve'" />
     <div id="app">
-      <Header :title="'Muve'" />
       <div class="container">
         <router-view></router-view>
       </div>
@@ -45,8 +45,9 @@ html, body {
 
 .container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 #app {
@@ -61,5 +62,8 @@ html, body {
 
 .container-app {
   display: flex;
+  flex-direction: column;
+  max-width: 1112px;
+  margin: 0 auto;
 }
 </style>

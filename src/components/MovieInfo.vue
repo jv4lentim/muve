@@ -65,6 +65,7 @@
     margin-bottom: 30px;
     max-width: 880px;
     display: flex;
+    align-items: center;
         
     .titulo {
       color: #ffffff;
