@@ -60,7 +60,7 @@
       color: #ffffff;
       font-size: 16pt;
       text-align: center;
-      margin-top: 35px;
+      margin-top: 15px;
       padding: 0;
     }
     .lista-filmes {
